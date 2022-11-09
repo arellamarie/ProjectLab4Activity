@@ -24,23 +24,24 @@ while True:
         measurement = input(
             "What unit of measurement do you want for the output? Enter (M) for Metric System Enter (I) for Imperial System Enter here: "
         )
-        if measurement == "M" or measurement == "m": 
+       if measurement == "M" or measurement == "m":
             print("=============================================")
-            km = (json_data["route"]["distance"] * 1.61)
+            km = json_data["route"]["distance"] * 1.61
             meter = km * 1000
             liter = (json_data["route"]["fuelUsed"]) * 3.78
             ml = liter * 1000
-            print("Kilometers: " + str("{:.2f}".format((km))+ " km"))
-            print("Meters: " + str("{:.2f}".format((meter)) +" m"))
-            print("Fuel Used (Ltr): " + str("{:.2f}".format(liter)) +" L")
-            print("Fuel Used (ML): " + str("{:.2f}".format(ml)) +" ml")
+            print("Kilometers: " + str("{:.2f}".format((km)) + " km"))
+            print("Meters: " + str("{:.2f}".format((meter)) + " m"))
+            print("Fuel Used (Ltr): " + str("{:.2f}".format((liter)) + " L"))
+            print("Fuel Used (ML): " + str("{:.2f}".format((ml)) + " ml"))
             print("=============================================")
             for each in json_data["route"]["legs"][0]["maneuvers"]:
                 print(
-                    (each["narrative"]) 
-                    + " (" 
+                    (each["narrative"])
+                    + " ("
                     + str("{:.2f}".format((each["distance"]) * 1.61) + " km)")
                 )
+                
                 
         if measurement == "I" or measurement == "i":
             print("=============================================")
@@ -48,26 +49,29 @@ while True:
             yard = mile * 1760
             gallon = json_data["route"]["fuelUsed"]
             pint = gallon * 8
-            print("Miles: " + str("{:.2f}".format((mile)) +" mi"))
-            print("Yard: " + str("{:.2f}".format((yard)) +" yard"))
+            print("Miles: " + str("{:.2f}".format((mile)) + " mi"))
+            print("Yard: " + str("{:.2f}".format((yard)) + " yard"))
             print("Fuel Used (Gal): " + str("{:.2f}".format(gallon) + " gal"))
             print("Fuel Used (Pint): " + str("{:.2f}".format(pint) + " pt"))
             print("=============================================")
             for each in json_data["route"]["legs"][0]["maneuvers"]:
                 print(
-                    (each["narrative"]) 
-                    + " (" 
+                    (each["narrative"])
+                    + " ("
                     + str("{:.2f}".format((each["distance"])) + " mi)")
                 )
 
+                
+                
         print("=============================================")
-      
+        
+        
     
     elif json_status == 402:
         print("**********************************************")
         print(
             "Status Code: " 
-            + str(json_status) 
+            + str(json_status)
             + "; Invalid user inputs for one or both locations."
         )
         print("**********************************************\n")
@@ -75,7 +79,7 @@ while True:
         print("**********************************************")
         print(
             "Status Code: " 
-            + str(json_status) 
+            + str(json_status)
             + "; Missing an entry for one or both locations."
         )
         print("**********************************************\n")
