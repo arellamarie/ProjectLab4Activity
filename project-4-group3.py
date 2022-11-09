@@ -41,7 +41,7 @@ while True:
                     (each["narrative"])
                     + " ("
                     + str("{:.2f}".format((each["distance"]) * 1.61) + " km)")
-                )          
+                )
         if measurement == "I" or measurement == "i":
             print("=============================================")
             mile = json_data["route"]["distance"]
