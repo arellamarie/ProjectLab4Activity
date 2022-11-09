@@ -23,11 +23,8 @@ while True:
         print("Trip Duration: " + (json_data["route"]["formattedTime"]))
 
         measurement = input(
-            "What unit of measurement do you want for the output? 
-             Enter (M) for Metric System Enter 
-             (I) for Imperial System 
-             Enter here: "
-             )
+                      "What unit of measurement do you want for the output? Enter (M) for Metric System \n Enter \ (I) for Imperial System \n Enter here: "
+                      )
        if measurement == "M" or measurement == "m":
             print("=============================================")
             km = json_data["route"]["distance"] * 1.61
