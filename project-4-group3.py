@@ -23,8 +23,8 @@ while True:
         print("Trip Duration: " + (json_data["route"]["formattedTime"]))
 
         measurement = input(
-                      "What unit of measurement do you want for the output? Enter (M) for Metric Enter Unit (I) for Imperial Unit: "
-                      )
+            "What unit of measurement do you want for the output? Enter (M) for Metric or (I) for Imperial: "
+        )
         if measurement == "M" or measurement == "m":
             print("=============================================")
             km = json_data["route"]["distance"] * 1.61
@@ -43,7 +43,6 @@ while True:
                     + str("{:.2f}".format((each["distance"]) * 1.61) + " km)")
                 )
                 
-                
         if measurement == "I" or measurement == "i":
             print("=============================================")
             mile = json_data["route"]["distance"]
@@ -61,9 +60,7 @@ while True:
                     + " ("
                     + str("{:.2f}".format((each["distance"])) + " mi)")
                 )
-
-                
-                
+       
         print("=============================================")
         
         
@@ -71,7 +68,7 @@ while True:
     elif json_status == 402:
         print("**********************************************")
         print(
-            "Status Code: " 
+            "Status Code: "
             + str(json_status)
             + "; Invalid user inputs for one or both locations."
         )
@@ -79,7 +76,7 @@ while True:
     elif json_status == 611:
         print("**********************************************")
         print(
-            "Status Code: " 
+            "Status Code: "
             + str(json_status)
             + "; Missing an entry for one or both locations."
         )
